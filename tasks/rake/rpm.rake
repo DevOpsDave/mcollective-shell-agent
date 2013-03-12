@@ -26,7 +26,7 @@ task :build_mcollective_common_rpm do
 
   puts "Building #{plugin_name} RPM..."
   rpm_packager = RpmPackager.new
-  output = rpm_packager.build(plugin_name)
+  output = rpm_packager.build(plugin_name, {"mcollective-common" => "#{ENV['mcollective-common-version']}"})
   puts output
 end
 
