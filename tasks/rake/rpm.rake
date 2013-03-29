@@ -39,11 +39,11 @@ task :build_mcollective_agent_rpm do
 
   FileUtils.copy("#{base_directory}/agent/shell.rb", "#{RESULTS}/input/#{plugin_name}/usr/libexec/mcollective/mcollective/agent")
 
-  version = YAML.load_file("#{RESULTS}/dist/cegeka-mcollective-shell-common.yaml")['version']
+  version = YAML.load_file("#{RESULTS}/dist/mcollective-shell-common.yaml")['version']
 
   puts "Building #{plugin_name} RPM..."
   rpm_packager = RpmPackager.new
-  output = rpm_packager.build(plugin_name, {"cegeka-mcollective-shell-common" => "#{version}", "mcollective-common" => "#{ENV['mcollective-common-version']}"})
+  output = rpm_packager.build(plugin_name, {"mcollective-shell-common" => "#{version}", "mcollective-common" => "#{ENV['mcollective-common-version']}"})
   puts output
 end
 
@@ -56,10 +56,10 @@ task :build_mcollective_client_rpm do
 
   FileUtils.copy("#{base_directory}/application/shell.rb", "#{RESULTS}/input/#{plugin_name}/usr/libexec/mcollective/mcollective/application")
 
-  version = YAML.load_file("#{RESULTS}/dist/cegeka-mcollective-shell-common.yaml")['version']
+  version = YAML.load_file("#{RESULTS}/dist/mcollective-shell-common.yaml")['version']
 
   puts "Building #{plugin_name} RPM..."
   rpm_packager = RpmPackager.new
-  output = rpm_packager.build(plugin_name, {"cegeka-mcollective-shell-common" => "#{version}", "mcollective-common" => "#{ENV['mcollective-common-version']}"})
+  output = rpm_packager.build(plugin_name, {"mcollective-shell-common" => "#{version}", "mcollective-common" => "#{ENV['mcollective-common-version']}"})
   puts output
 end

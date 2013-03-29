@@ -39,7 +39,7 @@ class BasePackager
   end
 
   def build(plugin_name, plugin_dependencies={})
-    package_name = "cegeka-#{plugin_name}"
+    package_name = "#{plugin_name}"
     destination_file = "#{package_name}#{@first_delimiter}#{@semver_version}-#{@release}#{@second_delimiter}#{@architecture}.#{@package_type}"
     destination_folder = "#{@basedirectory}/#{RESULTS}/dist"
     description = "MCollective Plugin #{plugin_name} by Cegeka\n"
